@@ -5,73 +5,84 @@
     <section class="h-screen">
         <div class="container px-6 py-12 h-full">
             <div
-                class="flex justify-around items-center flex-row h-full g-6 text-gray-800"
+                class="flex flex-col md:flex-row justify-around items-center h-full g-6 text-gray-800"
             >
-                <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
+                <div class="md:w-1/3 mb-12 md:mb-0">
                     <!-- src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" -->
 
                     <img
-                        src="../images/logo.png"
+                        src="../../images/logo.png"
                         class="w-full"
                         alt="Phone image"
                     />
                 </div>
-                <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
-                    <form>
-                        <!-- Email input -->
-                        <div class="mb-6">
-                            <input
-                                type="text"
-                                class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                placeholder="Email address"
-                            />
-                        </div>
-
-                        <!-- Password input -->
-                        <div class="mb-6">
-                            <input
-                                type="password"
-                                class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                placeholder="Password"
-                            />
-                        </div>
-
-                        <div class="flex justify-between items-center mb-6">
-                            <div class="form-group form-check">
+                <div class="md:w-3/4 lg:ml-20">
+                    <form class="mt-8 space-y-6" action="#" method="POST">
+                        <input type="hidden" name="remember" value="true" />
+                        <div class="-space-y-px rounded-md shadow-sm">
+                            <div>
+                                <label for="email-address" class="sr-only"
+                                    >Email address</label
+                                >
                                 <input
+                                    id="email-address"
+                                    name="email"
+                                    type="email"
+                                    autocomplete="email"
+                                    required
+                                    class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    placeholder="Email address"
+                                />
+                            </div>
+                            <div>
+                                <label for="password" class="sr-only"
+                                    >Password</label
+                                >
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    autocomplete="current-password"
+                                    required
+                                    class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                    placeholder="Password"
+                                />
+                            </div>
+                        </div>
+
+                        <div
+                            class="flex items-center text-sm tracking-tighter justify-between"
+                        >
+                            <div class="flex items-center">
+                                <input
+                                    id="remember-me"
+                                    name="remember-me"
                                     type="checkbox"
-                                    class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-500 checked:border-blue-800 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                    id="exampleCheck3"
-                                    checked
+                                    class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
                                 <label
-                                    class="form-check-label text-sm inline-block text-gray-800"
-                                    for="exampleCheck2"
+                                    for="remember-me"
+                                    class="ml-2 block text-sm text-gray-900"
                                     >Remember me</label
                                 >
                             </div>
-                            <a
-                                href="#!"
-                                class="text-blue-600 text-sm hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
-                                >Forgot password?</a
-                            >
-                        </div>
 
+                            <div class="text-sm">
+                                <a
+                                    href="/request-password"
+                                    class="text-indigo-600 font-thin text-small hover:text-indigo-500"
+                                    >Forgot your password?</a
+                                >
+                            </div>
+                        </div>
                         <!-- Submit button -->
-                        <button
-                            type="submit"
-                            class="inline-block px-7 py-3 bg-lime-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
-                            data-mdb-ripple="true"
-                            data-mdb-ripple-color="light"
-                        >
-                            Sign in
-                        </button>
+                        <submit-button title="Login"></submit-button>
 
                         <div
                             class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
                         >
-                            <p class="text-center font-semibold mx-4 mb-0">
-                                OR
+                            <p class="text-center text-sm mx-4 mb-0">
+                                Or continue with
                             </p>
                         </div>
 
@@ -96,7 +107,7 @@
                                 />
                             </svg>
                             <span class="text-sm tracking-tighter">
-                                Continue with Facebook
+                                Facebook
                             </span>
                         </a>
 
@@ -127,8 +138,11 @@
     </section>
 </template>
 <script>
+import SubmitButton from "../../components/SubmitButton.vue";
 export default {
-    name: "Login",
+    components: {
+        SubmitButton,
+    },
 };
 </script>
 <style scoped></style>
