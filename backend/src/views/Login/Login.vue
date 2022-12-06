@@ -69,7 +69,7 @@
 
                             <div class="text-sm">
                                 <a
-                                    href="/requestpassword"
+                                    href="/reqpass"
                                     class="text-indigo-600 font-thin text-small hover:text-indigo-500"
                                     >Forgot your password?</a
                                 >
