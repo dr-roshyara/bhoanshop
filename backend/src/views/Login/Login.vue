@@ -68,11 +68,12 @@
                             </div>
 
                             <div class="text-sm">
-                                <a
-                                    href="/reqpass"
+                                <router-link
+                                    to="/reqpass"
                                     class="text-indigo-600 font-thin text-small hover:text-indigo-500"
-                                    >Forgot your password?</a
                                 >
+                                    Forgot your password?
+                                </router-link>
                             </div>
                         </div>
                         <!-- Submit button -->
