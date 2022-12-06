@@ -1,40 +1,35 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Dashboard from "./../views/Dashboard.vue";
-import Login from "./../views/Login/Login.vue";
-import Home from "./../views/Home.vue";
-import ResetPassword from "../views/Login/ResetPassword.vue";
-import RequestPassword from "../views/Login/RequestPassword.vue";
-import Notfound from "./../views/Login/Notfound.vue";
+
 const routes = [
     {
         path: "/",
         name: "home",
-        component: Home,
+        component: () => import("../views/Home.vue"),
     },
     {
         path: "/dashboard",
         name: "dashboard",
-        component: Dashboard,
+        component: () => import("./../views/Dashboard.vue"),
     },
     {
         path: "/login",
         name: "login",
-        component: Login,
+        component: () => import("./../views/Login/Login.vue"),
     },
     {
         path: "/reset-password",
         name: "Reset-password",
-        component: ResetPassword,
+        component: () => import("./../views/Login/ResetPassword.vue"),
     },
     {
         path: "/request-password",
         name: "Request-password",
-        component: RequestPassword,
+        component: () => import("./../views/Login/RequestPassword.vue"),
     },
     {
         path: "/:pathMatch(.*)",
         name: "Notfound",
-        component: "NotFound",
+        component: () => import("./../views/Login/NotFound.vue"),
     },
 ];
 
