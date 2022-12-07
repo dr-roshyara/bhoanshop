@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Domain\Users\Request;
-
-use Doctrine\Inflector\Rules\English\Rules;
-use Illuminate\Foundation\Http\FormRequest;
 use App\Actions\Fortify\PasswordValidationRules;
-class StoreUserRequest extends FormRequest
+use Illuminate\Foundation\Http\FormRequest as HttpFormRequest;
+
+class StoreUserRequest extends HttpFormRequest
 {
      use PasswordValidationRules;
     /**
@@ -15,7 +14,7 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,12 +24,13 @@ class StoreUserRequest extends FormRequest
      */
     public function rules()
     {
-        // return [
-        //     'first_name'    => ['required', 'string', 'max:255', 'min:2'],
-        //     'last_name'     => ['required', 'string', 'max:255', 'min:2'],
-        //     'email'         => ['required','email', 'string', 'unique:users'],
-        //     'password'      => $this->passwordRules()
+        return [
+            'first_name'    =>['required', 'string', 'max:255', 'min:2'],
+            'last_name'     => ['required', 'string', 'max:255', 'min:2'],
+            'email'         => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password'      => $this->passwordRules()
 
-        // ];
+        ];
     }
+
 }
