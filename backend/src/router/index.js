@@ -4,32 +4,32 @@ const routes = [
     {
         path: "/",
         name: "home",
-        component: () => import("../views/Home.vue"),
+        component: () => import("@/views/Home.vue"),
     },
     {
         path: "/dashboard",
         name: "dashboard",
-        component: () => import("./../views/Dashboard.vue"),
+        component: () => import("@/views/Dashboard.vue"),
     },
     {
         path: "/login",
         name: "login",
-        component: () => import("./../views/Login/Login.vue"),
+        component: () => import("@/views/Login/Login.vue"),
     },
     {
         path: "/respass",
         name: "Resetpassword",
-        component: () => import("./../views/Login/ResetPassword.vue"),
+        component: () => import("@/views/Login/ResetPassword.vue"),
     },
     {
         path: "/reqpass",
         name: "Requestpassword",
-        component: () => import("./../views/Login/RequestPassword.vue"),
+        component: () => import("@/views/Login/RequestPassword.vue"),
     },
     {
         path: "/:pathMatch(.*)",
         name: "Notfound",
-        component: () => import("./../views/Login/NotFound.vue"),
+        component: () => import("@/views/Login/NotFound.vue"),
     },
 ];
 

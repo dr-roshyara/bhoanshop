@@ -15,11 +15,11 @@ export default defineComponent({
 });
 </script>
 
-<template>
-    <header class="flex flex-col">
+<template class="min-h-screen">
+    <header class="flex flex-col items-center">
         <h1 class="mt-2 text-2xl font-bold text-gray-600">Bhojan Shop</h1>
         <img alt="Vue logo" class="max-wd-96 logo" src="@/assets/logo.png" />
-        <div class="flex flex-row w-full">
+        <div class="flex flex-row min-w-full">
             <nav>
                 <RouterLink to="/">Home</RouterLink>
                 <RouterLink to="/about">About</RouterLink>
