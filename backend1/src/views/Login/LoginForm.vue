@@ -1,5 +1,5 @@
 <template>
-    <section class="Flex flex-col justify-center items-center mt-10">
+    <section class="Flex flex-col justify-center items-center">
         <h1 class="text-center font-bold text-gray-700 text-xl">Login form</h1>
         <div
             class="flex flex-col md:flex-row justify-around items-center h-full g-6 text-gray-800"
