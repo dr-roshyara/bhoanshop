@@ -4,7 +4,7 @@
     <router-link to="/login">Go to Login</router-link>
 </template>
 <script lang="ts">
-import { useAuthStore } from "@/stores/index";
+import { useAuthStore } from "@/stores/auth-store";
 
 export default {
     setup() {

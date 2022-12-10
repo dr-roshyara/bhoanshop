@@ -1,21 +1,22 @@
 // import { ref, computed } from "vue";
 import { defineStore } from "pinia";
-import type User from "./type";
+import type User from "@/types/store";
+import { useUserStore } from "@/stores/user-store";
+// import { useApi } from "@/api/user-api";
 //Read this page to understand authnication via axios
 // https://upmostly.com/vue-js/how-to-use-vue-with-pinia-to-set-up-authentication
 // https://jasonwatmore.com/post/2022/07/25/vue-3-pinia-user-registration-and-login-example-tutorial#router-index-js
 export const useAuthStore = defineStore("user", {
-    state: () => ({
-        user: {
-            token: "1234" as string,
-        },
-        returnUrl: "" as string,
-    }),
-
+    state: () => {
+        return {
+            returnUrl: "",
+            user: {
+                id: "",
+                isLoggedIn: false as boolean,
+            },
+        };
+    },
     getters: {
-        getUser(): any {
-            return this.user;
-        },
         getReturnUrl(): any {
             return this.returnUrl;
         },
@@ -54,6 +55,17 @@ export const useAuthStore = defineStore("user", {
             });
             const user = await res.json();
             this.user = user;
+        },
+        //logout
+        async logout() {
+            const user = useUserStore();
+            // const router = useRouter();
+
+            localStorage.clear(); // always clean localStorage before reset the state
+            this.$reset();
+            user.$reset();
+
+            console.log("logout");
         },
     },
 });
