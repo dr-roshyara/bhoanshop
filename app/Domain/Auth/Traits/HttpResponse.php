@@ -8,7 +8,7 @@ trait HttpResponse {
     protected function success($data,$message=null, $code=200){
         header('Content-Type: application/json; charset=utf-8');
          return response()->json([
-            'status'=> 'Request was successful',
+            'status'=> '200',
             'message'=>$message,
             'data'=>$data,
 
