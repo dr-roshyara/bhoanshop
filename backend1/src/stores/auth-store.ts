@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 // import { ref, computed } from "vue";
 import { defineStore } from "pinia";
-import type User from "@/types/store";
 import type LoginUser from "@/types/store";
+import type LoggedUser from "@/types/store";
 import { fetchWrapper } from "@/helpers/fetch-wrapper";
 import { useUserStore } from "@/stores/user-store";
 import { useApi } from "@/api/user-api";
@@ -20,6 +20,7 @@ export const useAuthStore = defineStore("user", {
       returnUrl: "",
       // for data that is not yet loaded
       loginUser: null as LoginUser | null,
+      loggedUser: null as LoggedUser | null,
     };
   },
   getters: {
@@ -39,40 +40,22 @@ export const useAuthStore = defineStore("user", {
       // console.log(import.meta.env.VITE_API_URL);
       const LOGIN_URL = import.meta.env.VITE_API_URL + "/login";
       console.log(LOGIN_URL);
-      // try {
-      //   const user = await fetchWrapper.post(LOGIN_URL, loginUser);
-      //   console.log(user);
-      //   // update pinia state
-      //   // this.user = user;
-
-      //   // store user details and jwt in local storage to keep user logged in between page refreshes
-      //   localStorage.setItem("user", JSON.stringify(user));
-
-      //   // redirect to previous url or default to home page
-      //   // router.push(this.returnUrl || "/");
-      // } catch (error) {
-      //   // const alertStore = useAlertStore();
-      //   // alertStore.error(error);
-      //   console.log(error);
-      // }
-      // const user = useUserStore();
-      //   try {
-      //     // await this.csrf();
-      const response = await axios.post(LOGIN_URL, {
-        email: loginUser.email,
-        password: loginUser.password,
-      });
-      // console.log(response);
-      this.$state.loginUser = response.data.user;
-      console.log(this.$state.loginUser);
-      localStorage.setItem("token", response.data.token);
-      await router.push({ path: "/dashboard" });
-      //     // this.updateState({ loginUser.email, isLoggedIn: true });
-      //     // await user.storeInfo();
-      //   } catch (error) {
-      //     console.log("Error at login: ", error.message);
-      //     throw error;
-      //   }
+      try {
+        const response = await axios.post(LOGIN_URL, {
+          email: loginUser.email,
+          password: loginUser.password,
+        });
+        console.log(response);
+        // this.$state.loggedUser = response.data.user;
+        // console.log(this.$state.loginUser);
+        // localStorage.setItem("token", response.data.token);
+        // await router.push({ path: "/dashboard" });
+        // //     // this.updateState({ loginUser.email, isLoggedIn: true });
+        // //     // await user.storeInfo();
+      } catch (error) {
+        console.log("Error at login: ", error.message);
+        throw error;
+      }
     },
     async fetchUser() {},
     //sign up function

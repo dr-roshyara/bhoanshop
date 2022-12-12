@@ -8,7 +8,15 @@ interface User {
 interface LoginUser {
   email: string;
   password: string;
-  toek: string;
-  isLoggedIn: Boolean;
 }
-export { User, LoginUser as default };
+interface LoggedUser {
+  email: string;
+  name: string;
+  token: string;
+  isLoggedIn: Boolean;
+  isAdmin: Boolean;
+  isOwner: Boolean;
+  isWaiter: Boolean;
+}
+
+export { User, LoginUser, LoggedUser as default };
