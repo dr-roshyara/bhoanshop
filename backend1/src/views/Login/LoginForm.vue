@@ -1,4 +1,3 @@
-<!-- eslint-disable prettier/prettier -->
 <template>
   <GuestLayout>
     <!-- <section class="mx-auto md:max-w-2xl"> -->

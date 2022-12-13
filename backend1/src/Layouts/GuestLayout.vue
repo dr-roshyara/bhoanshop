@@ -1,3 +1,4 @@
+<!-- eslint-disable prettier/prettier -->
 <template>
   <div
     class="flex flex-col md:flex-row justify-center items-center p-2 mx-auto rounded"
