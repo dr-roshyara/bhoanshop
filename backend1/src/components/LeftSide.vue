@@ -1,3 +1,4 @@
+<!-- eslint-disable prettier/prettier -->
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 </script>

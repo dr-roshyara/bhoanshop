@@ -1,3 +1,4 @@
+<!-- eslint-disable prettier/prettier -->
 <template>
   <GuestLayout title="Request new password">
     <form class="mt-8 space-y-6" action="#" method="POST">
