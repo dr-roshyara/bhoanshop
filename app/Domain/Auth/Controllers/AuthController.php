@@ -46,24 +46,30 @@ class AuthController extends Controller
 
         // return "test";
         // return $request->all();
-        $request->validated($request->all());
+        try{
+            $request->validated($request->all());
 
-        $user=  new User();
-        $user->first_name   = $request->first_name;
-        $user->last_name    = $request->last_name;
-        $user->email        = $request['email'];
-        $user->password     = Hash::make($request['password']);
-        // return $request->all();
-        $user->save();
-        return $this->success([
-            'user'=>$user,
-            'token'=>$user->createToken('Api Token of '.$user->first_name)->plainTextToken
-        ]);
-        // return "test";
-        return $user;
-        // return $this->success($data, "success");
-        // return $request->name;
-        return "this is register ";
+            $user=  new User();
+            $user->first_name   = $request->first_name;
+            $user->last_name    = $request->last_name;
+            $user->email        = $request['email'];
+            $user->password     = Hash::make($request['password']);
+            // return $request->all();
+            $user->save();
+            $_loggedUser =[
+                'email'     =>$user->email,
+                'name'      =>$user->first_name." ".$user->last_name,
+                'isLoggedIn'=>true,
+                'isAdmin'   =>$user->is_admin,
+                'isOwner'  =>$user->is_owner,
+                'isWaiter'  =>$user->is_waiter,
+                'token'     =>$user->createToken('Api Token of '.$user->first_name)->plainTextToken
+
+            ];
+            return $this->success($_loggedUser, $message="Registration was successful");
+        }catch(Exception $e) {
+            return 'Message: ' .$e->getMessage();
+        }
     }
     /**
      * Logout function
