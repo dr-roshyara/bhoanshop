@@ -21,6 +21,8 @@ export const useAuthStore = defineStore("user", {
       // for data that is not yet loaded
       loginUser: null as LoginUser | null,
       loggedUser: null as LoggedUser | null,
+      errorMessage: "Either user email or password is wrong." as string,
+      loginError: false as Boolean,
     };
   },
   getters: {
@@ -45,17 +47,39 @@ export const useAuthStore = defineStore("user", {
           email: loginUser.email,
           password: loginUser.password,
         });
-        console.log(response);
-        // this.$state.loggedUser = response.data.user;
-        // console.log(this.$state.loginUser);
-        // localStorage.setItem("token", response.data.token);
-        // await router.push({ path: "/dashboard" });
-        // //     // this.updateState({ loginUser.email, isLoggedIn: true });
-        // //     // await user.storeInfo();
+        // console.log(response.data.user);
+        this.$state.loggedUser = response.data.user;
+        // console.log(this.$state.loggedUser);
+        this.updateLocalStorage(response);
+
+        await router.push({ path: "/dashboard" });
+        return {
+          user: response.data.user,
+          loginError: this.$state.loginError,
+        };
       } catch (error) {
-        console.log("Error at login: ", error.message);
+        this.$state.loginError = true;
+        return this.showLoginError();
+        // console.log("Error at login: ", error.message);
         throw error;
       }
+    },
+    updateLocalStorage(response: any) {
+      if (this.$state.loggedUser) {
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        // const user = localStorage.getItem("user");
+        // console.log(user);
+      } else {
+        localStorage.removeItem("user");
+      }
+    },
+    showLoginError() {
+      // this.$state.loginError = true;
+      // console.log(this.$state.errorMessage);
+      return {
+        errorMessage: this.$state.errorMessage,
+        loginError: this.$state.loginError,
+      };
     },
     async fetchUser() {},
     //sign up function
@@ -99,8 +123,8 @@ export const useAuthStore = defineStore("user", {
       localStorage.clear(); // always clean localStorage before reset the state
       this.$reset();
       user.$reset();
-
-      console.log("logout");
+      await router.push({ path: "/login" });
+      // console.log("logout");
     },
   },
 });

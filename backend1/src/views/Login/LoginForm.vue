@@ -2,12 +2,17 @@
 <template>
   <section class="Flex flex-col justify-center items-center">
     <h1 class="text-center font-bold text-gray-700 text-xl">Login form</h1>
+
     <div
       class="flex flex-col md:flex-row justify-around items-center h-full g-6 text-gray-800"
     >
       <div class="md:w-3/4 lg:ml-20">
         <!-- Here starts the form  -->
-
+        <div v-if="loginError">
+          <p class="text-center text-red-600 text-sm font-bold">
+            {{ errorMessage }}
+          </p>
+        </div>
         <form class="mt-8 space-y-6" @submit.prevent="loginFn">
           <input type="hidden" name="remember" value="true" />
           <div class="-space-y-px rounded-md shadow-sm">
@@ -121,10 +126,12 @@
 <!-- eslint-disable prettier/prettier -->
 <script lang="ts">
 import SubmitButton from "@/components/SubmitButton.vue";
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 import { useAuthStore } from "@/stores/auth-store";
 export default defineComponent({
   setup() {
+    let errorMessage: string | null = ref("");
+    let loginError: Boolean = ref(false);
     const auth = useAuthStore();
     const credentials = reactive({
       email: "",
@@ -132,10 +139,15 @@ export default defineComponent({
     });
     const loginFn = async () => {
       //   console.log(credentials);
-      await auth.login(credentials);
-      //   await router.push("/");
+      errorMessage.value = null;
+      const response = await auth.login(credentials);
+      // console.log(response);
+      if (response.loginError) {
+        errorMessage.value = response.errorMessage;
+        loginError.value = true;
+      }
     };
-    return { credentials, loginFn };
+    return { credentials, errorMessage, loginError, loginFn };
   },
   methods: {},
   components: {

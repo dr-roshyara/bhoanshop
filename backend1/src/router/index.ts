@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import { useAuthStore } from "@/stores/auth-store";
 export const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.VITE_BASE_URL),
   linkActiveClass: "active",
   routes: [
     // catch all redirect to home page
@@ -53,17 +54,25 @@ export const router = createRouter({
 router.beforeEach(async (to) => {
   // clear alert on route change
   // const alertStore = useAlertStore();
+  // eslint-disable-next-line prettier/prettier
   // alertStore.clear();
-
   // redirect to login page if not logged in and trying to access a restricted page
-  const publicPages = ["/login", "/register"];
+  const publicPages = [
+    "/",
+    "/login",
+    "/register",
+    "/about",
+    "/reqpass",
+    "/respass",
+  ];
   const authRequired = !publicPages.includes(to.path);
   const authStore = useAuthStore();
 
-  if (authRequired && !authStore.user) {
+  if (authRequired && !authStore.loggedUser) {
     authStore.$patch((state) => {
       state.returnUrl = to.fullPath;
+      console.log(to.fullPath);
     });
-    return "/account/login";
+    return "/login";
   }
 });

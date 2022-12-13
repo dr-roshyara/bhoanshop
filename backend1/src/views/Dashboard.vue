@@ -1,6 +1,7 @@
 <template>
-  <h1>Dashboard form</h1>
-  <button @click="getStore()">Click here</button>
+  <button @click="store.logout()">Logout</button>
+  <h1>Dashboard of {{ store.loggedUser?.name }}</h1>
+  <!-- <button @click="getStore()">Click here</button> -->
 
   <!-- <router-link to="/login">Go to Login</router-link> -->
 </template>
