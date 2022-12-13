@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import TheWelcome from "../components/TheWelcome.vue";
+import TheWelcome from "@/Components/TheWelcome.vue";
+import PublicPage from "@/Layouts/GuestLayout.vue";
 </script>
 
 <template>
-    <main>
-        <TheWelcome />
-    </main>
+  <public-page>
+    <TheWelcome />
+  </public-page>
 </template>
+<script></script>

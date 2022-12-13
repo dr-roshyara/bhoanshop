@@ -1,30 +1,25 @@
 <template>
-    <div
-        class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
-    >
-        <div class="max-w-md w-full space-y-8">
-            <div>
-                <h2
-                    class="mt-6 text-center text-3xl font-extrabold text-gray-900"
-                >
-                    {{ title }}
-                </h2>
-            </div>
-            <slot></slot>
-        </div>
+  <div
+    class="flex flex-col md:flex-row justify-center items-center p-2 mx-auto rounded"
+  >
+    <div class="w-full md:w-1/3 md:min-h-screen p-2 mb-2 bg-slate-50">
+      <left-side> </left-side>
     </div>
+    <div
+      class="rightSide w-full p-2 mx-auto bg-emerald-50 md:min-h-screen shadow-lg"
+    >
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import LeftSide from "@/Components/LeftSide.vue";
+
 export default defineComponent({
-    props: {
-        title: {
-            required: true,
-            type: String,
-        },
-    },
+  components: {
+    LeftSide,
+  },
 });
 </script>
-
-<style scoped></style>

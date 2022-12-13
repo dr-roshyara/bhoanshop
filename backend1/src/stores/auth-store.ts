@@ -1,71 +1,107 @@
+/* eslint-disable prettier/prettier */
 // import { ref, computed } from "vue";
 import { defineStore } from "pinia";
-import type User from "@/types/store";
-import { useUserStore } from "@/stores/user-store";
-// import { useApi } from "@/api/user-api";
+import type { LoginUser } from "@/types/store";
+import type { NewUser } from "@/types/store";
+import type { LoggedUser } from "@/types/store";
+// import type LoggedUser from "@/types/store";
+import axios from "axios";
+import { router } from "@/router/index";
 //Read this page to understand authnication via axios
 // https://upmostly.com/vue-js/how-to-use-vue-with-pinia-to-set-up-authentication
 // https://jasonwatmore.com/post/2022/07/25/vue-3-pinia-user-registration-and-login-example-tutorial#router-index-js
 export const useAuthStore = defineStore("user", {
-    state: () => {
+  state: () => {
+    return {
+      returnUrl: "",
+      // for data that is not yet loaded
+      loggedInUser: null as LoggedUser | null,
+      errorMessage: "Either user email or password is wrong." as string,
+      loginError: false as Boolean,
+    };
+  },
+  getters: {
+    getReturnUrl(): any {
+      return this.returnUrl;
+    },
+  },
+  actions: {
+    async login(logUser: LoginUser) {
+      const LOGIN_URL = import.meta.env.VITE_API_URL + "/login";
+      console.log(LOGIN_URL);
+      try {
+        const response = await axios.post(LOGIN_URL, {
+          email: logUser.email,
+          password: logUser.password,
+        });
+        // console.log(response.data.user);
+        this.$state.loggedInUser = response.data.user;
+        this.updateLocalStorage(response);
+
+        await router.push({ path: "/dashboard" });
         return {
-            returnUrl: "",
-            user: {
-                id: "",
-                isLoggedIn: false as boolean,
-            },
+          user: response.data.user,
+          loginError: this.$state.loginError,
+          errorMessage: "",
         };
+      } catch (error) {
+        this.$state.loginError = true;
+        return this.showLoginError();
+        throw error;
+      }
     },
-    getters: {
-        getReturnUrl(): any {
-            return this.returnUrl;
-        },
+    updateLocalStorage(response: any) {
+      if (this.$state.loggedInUser) {
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        // const user = localStorage.getItem("user");
+        // console.log(user);
+      } else {
+        localStorage.removeItem("user");
+      }
     },
-    actions: {
-        async fetchUser() {},
-        //sign up function
-        async signUp(user: User) {
-            const res = await fetch("https://bhojan.shop/api/register", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    first_name: user.first_name,
-                    last_name: user.last_name,
-                    email: user.email,
-                    password: user.password,
-                    "password-confirmation": user.password,
-                }),
-            });
-            const newUser = await res.json();
-            this.user = newUser;
-        },
-        //sign in function
-        async signIn(email: string, password: string) {
-            const res = await fetch("https://bhojan.shop/api/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email,
-                    password,
-                }),
-            });
-            const user = await res.json();
-            this.user = user;
-        },
-        //logout
-        async logout() {
-            const user = useUserStore();
-            // const router = useRouter();
+    showLoginError() {
+      // this.$state.loginError = true;
+      // console.log(this.$state.errorMessage);
+      return {
+        errorMessage: this.$state.errorMessage,
+        loginError: this.$state.loginError,
+      };
+    },
+    //sign up function
+    async register(user: NewUser) {
+      const REGISTER_URL = import.meta.env.VITE_API_URL + "/register";
+      console.log(REGISTER_URL);
+      try {
+        const response = await axios.post(REGISTER_URL, user);
+        console.log(response.data.user);
+        this.$state.loggedInUser = response.data.user;
+        console.log(this.$state.loggedInUser);
+        this.updateLocalStorage(response);
 
-            localStorage.clear(); // always clean localStorage before reset the state
-            this.$reset();
-            user.$reset();
+        await router.push({ path: "/dashboard" });
+        return {
+          user: response.data.user,
+          loginError: this.$state.loginError,
+          errorMessage: "",
+        };
+      } catch (error) {
+        this.$state.loginError = true;
+        return this.showLoginError();
+        throw error;
+      }
 
-            console.log("logout");
-        },
+      // await router.push({ path: "/dashboard" });
+      return {
+        user: user,
+        loginError: this.$state.loginError,
+        errorMessage: "",
+      };
     },
+    //logout
+    async logout() {
+      localStorage.clear(); // always clean localStorage before reset the state
+      this.$reset();
+      await router.push({ path: "/login" });
+    },
+  },
 });
