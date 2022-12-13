@@ -1,9 +1,6 @@
 <template>
   <button @click="store.logout()">Logout</button>
-  <h1>Dashboard of {{ store.loggedUser?.name }}</h1>
-  <!-- <button @click="getStore()">Click here</button> -->
-
-  <!-- <router-link to="/login">Go to Login</router-link> -->
+  <h1>Dashboard of {{ store.loggedInUser?.name }}</h1>
 </template>
 <script lang="ts">
 import { useAuthStore } from "@/stores/auth-store";

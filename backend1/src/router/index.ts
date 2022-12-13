@@ -2,8 +2,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 import { useAuthStore } from "@/stores/auth-store";
+import authMiddleware from "@/router/middleware/auth-middleware";
 export const router = createRouter({
-  history: createWebHistory(import.meta.env.VITE_BASE_URL),
+  history: createWebHistory(),
   linkActiveClass: "active",
   routes: [
     // catch all redirect to home page
@@ -35,6 +36,11 @@ export const router = createRouter({
       component: () => import("@/views/Login/LoginForm.vue"),
     },
     {
+      path: "/register",
+      name: "register",
+      component: () => import("@/views/Login/RegisterForm.vue"),
+    },
+    {
       path: "/respass",
       name: "Resetpassword",
       component: () => import("@/views/Login/ResetPassword.vue"),
@@ -51,11 +57,13 @@ export const router = createRouter({
     },
   ],
 });
+
+router.beforeEach(authMiddleware);
 router.beforeEach(async (to) => {
-  // clear alert on route change
-  // const alertStore = useAlertStore();
-  // eslint-disable-next-line prettier/prettier
-  // alertStore.clear();
+  /**
+   * This is not necessary and double but I just keep it for the
+   * time being
+   */
   // redirect to login page if not logged in and trying to access a restricted page
   const publicPages = [
     "/",
@@ -68,7 +76,7 @@ router.beforeEach(async (to) => {
   const authRequired = !publicPages.includes(to.path);
   const authStore = useAuthStore();
 
-  if (authRequired && !authStore.loggedUser) {
+  if (authRequired && !authStore.loggedInUser) {
     authStore.$patch((state) => {
       state.returnUrl = to.fullPath;
       console.log(to.fullPath);
