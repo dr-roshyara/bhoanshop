@@ -51,7 +51,7 @@ h3 {
   }
 
   i {
-    top: calc(50% - 25px);
+    /* top: calc(50% - 25px); */
     left: -26px;
     position: absolute;
     border: 1px solid var(--color-border);
@@ -72,11 +72,13 @@ h3 {
 
   .item:after {
     content: " ";
-    border-left: 1px solid var(--color-border);
+    border-left: 2px solid var(--color-border);
     position: absolute;
     left: 0;
-    top: calc(50% + 25px);
-    height: calc(50% - 25px);
+    /* top: calc(10% + 40px); */
+    top: 3.5rem;
+
+    height: calc(100% - 25px);
   }
 
   .item:first-of-type:before {
