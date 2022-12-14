@@ -8,8 +8,8 @@ export default (to: any, from: any, next: any) => {
     "login",
     "register",
     "about",
-    "reqpass",
-    "respass",
+    "Resetpassword",
+    "Requestpassword",
   ];
   const isGoingExceptionalRoutes = exceptionalRoutes.includes(to.name);
 
