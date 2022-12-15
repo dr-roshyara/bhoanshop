@@ -10,6 +10,7 @@ export default (to: any, from: any, next: any) => {
     "about",
     "Resetpassword",
     "Requestpassword",
+    "restaurant",
   ];
   const isGoingExceptionalRoutes = exceptionalRoutes.includes(to.name);
 

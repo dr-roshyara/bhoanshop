@@ -12,50 +12,23 @@
               <p>Enter your information to register</p>
             </div>
             <form @submit.prevent="registerFn">
-              <div class="flex flex-col">
-                <div class="w-full px-3 mb-5">
-                  <label for="" class="text-xs font-semibold px-1"
-                    >First name</label
-                  >
-                  <div class="flex">
-                    <div
-                      class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"
-                    >
-                      <i
-                        class="mdi mdi-account-outline text-gray-400 text-lg"
-                      ></i>
-                    </div>
-                    <input
-                      id="first_name"
-                      v-model="user.first_name"
-                      type="text"
-                      class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                      placeholder="John"
-                    />
-                  </div>
-                </div>
-                <div class="w-full px-3 mb-5">
-                  <label for="" class="text-xs font-semibold px-1"
-                    >Last name</label
-                  >
-                  <div class="flex">
-                    <div
-                      class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"
-                    >
-                      <i
-                        class="mdi mdi-account-outline text-gray-400 text-lg"
-                      ></i>
-                    </div>
-                    <input
-                      id="last_name"
-                      v-model="user.last_name"
-                      type="text"
-                      class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-                      placeholder="Smith"
-                    />
-                  </div>
-                </div>
-              </div>
+              <text-input
+                v-model="user.first_name"
+                type="text"
+                name="firstname"
+                label-name="First name"
+                placeholder="Nab"
+              ></text-input>
+              <!-- Last name  -->
+              <text-input
+                v-model="user.last_name"
+                type="text"
+                name="lastname"
+                label-name="Last name"
+                placeholder="Nab"
+              ></text-input>
+              <!-- password  -->
+
               <div class="flex flex-col">
                 <div class="w-full px-3 mb-5">
                   <label for="" class="text-xs font-semibold px-1">Email</label>
@@ -141,6 +114,7 @@ import { defineComponent, reactive, ref } from "vue";
 import type { Ref } from "vue";
 import { useAuthStore } from "@/stores/auth-store";
 import type { NewUser } from "@/types/store";
+import TextInput from "@/Components/Form/TextInput.vue";
 export default defineComponent({
   setup() {
     const errorMessage: Ref<string> = ref("");
@@ -172,6 +146,7 @@ export default defineComponent({
   },
   components: {
     GuestLayout,
+    TextInput,
   },
 });
 </script>

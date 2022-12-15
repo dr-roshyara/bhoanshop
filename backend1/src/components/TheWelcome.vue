@@ -63,7 +63,7 @@ import SupportIcon from "./icons/IconSupport.vue";
       <template #icon>
         <SupportIcon />
       </template>
-      <template #heading>Support Vue</template>
+      <template #heading>Support Bhojanshop</template>
       <div>
         Bhojan Shop relies on community backing for its sustainability. Please
         support us by providing your feedback and your creative ideas to improve

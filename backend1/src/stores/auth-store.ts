@@ -27,8 +27,9 @@ export const useAuthStore = defineStore("user", {
   },
   actions: {
     async login(logUser: LoginUser) {
-      const LOGIN_URL = import.meta.env.VITE_API_URL + "/login";
-      console.log(LOGIN_URL);
+      // const LOGIN_URL = import.meta.env.VITE_API_URL + "/login";
+      const LOGIN_URL = "https://bhojan.shop/api/login";
+      // console.log(LOGIN_URL);
       try {
         const response = await axios.post(LOGIN_URL, {
           email: logUser.email,

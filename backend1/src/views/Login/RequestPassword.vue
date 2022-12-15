@@ -27,6 +27,16 @@
                   placeholder="Email address"
                 />
               </div>
+              <!-- email  -->
+              <TextInput
+                v-model="email"
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                class="mt-1 block w-full"
+                required
+                autofocus
+              />
             </div>
 
             <!-- Submit button -->
@@ -52,10 +62,18 @@
 <script lang="ts">
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import SubmitButton from "@/Components/SubmitButton.vue";
-export default {
+import TextInput from "@/Components/Form/TextInput.vue";
+import { defineComponent } from "vue";
+export default defineComponent({
+  data() {
+    return {
+      email: String,
+    };
+  },
   components: {
     GuestLayout,
     SubmitButton,
+    TextInput,
   },
-};
+});
 </script>
