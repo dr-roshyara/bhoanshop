@@ -1,9 +1,9 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
-  <div>
+  <div class="px-2 md:px-3">
     <button
       type="submit"
-      class="group relative flex w-full justify-center rounded-md border border-transparent bg-lime-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      class="group relative grid font-semibold text-gray-800 hover:text-white uppercase w-full justify-center rounded-lg border border-transparent bg-emerald-100 p-4 mx-auto hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 shadow"
     >
       <span class="absolute inset-y-0 left-0 flex items-center pl-3">
         <!-- Heroicon name: mini/lock-closed -->
@@ -21,7 +21,7 @@
           />
         </svg>
       </span>
-      <span>{{ title }} </span>
+      <span class="font-bold">{{ title }} </span>
     </button>
   </div>
 </template>

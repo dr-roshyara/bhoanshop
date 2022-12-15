@@ -1,4 +1,5 @@
 <!-- eslint-disable prettier/prettier -->
+<!-- eslint-disable prettier/prettier -->
 <template>
   <GuestLayout title="Request new password">
     <div
@@ -8,50 +9,22 @@
         class="bg-slate-50 text-gray-500 rounded-3xl shadow-xl w-full md:w-2/3 overflow-hidden"
         style="max-width: 1000px mx-auto"
       >
-        <div class="flex flex-col md:p-4 text-center mx-auto md: max-w-lg">
+        <div
+          class="flex flex-col md:p-4 text-center mx-auto md: max-w-lg mb-2 md:mb-3"
+        >
           <h1 class="text-gray-700 text-lg font-bold py-2">
             Request to Reset Password
           </h1>
-          <form class="flex flex-col my-4" action="#" method="POST">
-            <input type="hidden" name="remember" value="true" />
-            <div class="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label for="email-address" class="sr-only">Email address</label>
-                <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  required="true"
-                  class="appearance-none rounded-lg focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Email address"
-                />
-              </div>
-              <!-- email  -->
-              <TextInput
-                v-model="email"
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                class="mt-1 block w-full"
-                required
-                autofocus
-              />
-            </div>
-
+          <form class="flex flex-col my-4 mb-3" @submit.prevent="onSbumitFn">
             <!-- Submit button -->
-            <!-- <submit-button title="Submit"></submit-button> -->
-            <div
-              class="flex flex-col py-4 mt-6 transition duration-150 ease-out hover:ease-in"
-            >
-              <div class="w-full px-3 mb-5">
-                <button
-                  class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold ease-in-out duration-300"
-                >
-                  REGISTER NOW
-                </button>
-              </div>
-            </div>
+            <!-- email  -->
+            <text-input
+              v-model="email"
+              type="email"
+              name="email"
+              label-name="Email"
+            ></text-input>
+            <submit-button title="Submit"></submit-button>
           </form>
         </div>
       </div>
@@ -63,12 +36,18 @@
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import SubmitButton from "@/Components/SubmitButton.vue";
 import TextInput from "@/Components/Form/TextInput.vue";
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 export default defineComponent({
-  data() {
-    return {
-      email: String,
+  setup() {
+    // const errorMessage: Ref<string> = ref("");
+    // const loginError: Ref<Boolean> = ref(false);
+    // const auth = useAuthStore();
+    const email = ref("");
+    // email.value = "info@namastenepal.de";
+    const onSbumitFn = async () => {
+      console.log(email);
     };
+    return { email, onSbumitFn };
   },
   components: {
     GuestLayout,
