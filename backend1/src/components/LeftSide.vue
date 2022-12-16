@@ -1,17 +1,11 @@
 <!-- eslint-disable prettier/prettier -->
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
+import { RouterLink } from 'vue-router'
 </script>
 <template>
   <header class="flex flex-col items-center w-full">
-    <h1 class="mt-4 py-4 text-center text-2xl font-extrabold text-gray-600">
-      Bhojan Shop
-    </h1>
-    <img
-      alt="Vue logo"
-      class="w-full object-cover rounded-lg shadow-sm"
-      src="@/assets/logo.png"
-    />
+    <h1 class="mt-4 py-4 text-center text-2xl font-extrabold text-gray-600">Bhojan Shop</h1>
+    <img alt="Vue logo" class="w-full object-cover rounded-lg shadow-sm" src="@/assets/logo.png" />
     <div class="flex flex-row min-w-full">
       <nav>
         <RouterLink to="/">Home</RouterLink>

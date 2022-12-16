@@ -1,17 +1,17 @@
 <script lang="ts">
-import { RouterView } from "vue-router";
-import { defineComponent } from "vue";
+import { RouterView } from 'vue-router'
+import { defineComponent } from 'vue'
 export default defineComponent({
-  name: "App",
+  name: 'App',
   components: {
     RouterView,
   },
   data() {
     return {
-      name: "test",
-    };
+      name: 'test',
+    }
   },
-});
+})
 </script>
 
 <template>

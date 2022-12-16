@@ -6,14 +6,14 @@
   </guest-layout>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
-import GuestLayout from "@/Layouts/GuestLayout.vue";
+import { defineComponent } from 'vue'
+import GuestLayout from '@/Layouts/GuestLayout.vue'
 export default defineComponent({
   setup() {},
   components: {
     GuestLayout,
   },
-});
+})
 </script>
 
 <style></style>

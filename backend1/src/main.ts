@@ -1,15 +1,15 @@
-import { createApp } from "vue";
-import { createPinia } from "pinia";
-import "@/assets/base.css";
-import "@/assets/index.css";
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import '@/assets/base.css'
+import '@/assets/index.css'
 
-import App from "@/App.vue";
-import { router } from "@/router";
+import App from '@/App.vue'
+import { router, setupRouter } from '@/router/register'
 
-// import "@/assets/main.css";
-const app = createApp(App);
-
-app.use(createPinia());
-app.use(router);
-
-app.mount("#app");
+async function bootstrap() {
+  const app = createApp(App)
+  app.use(createPinia())
+  setupRouter(app)
+  router.isReady().then(() => app.mount('#app'))
+}
+void bootstrap()

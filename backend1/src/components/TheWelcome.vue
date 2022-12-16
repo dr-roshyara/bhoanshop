@@ -1,11 +1,11 @@
 <!-- eslint-disable prettier/prettier -->
 <script setup lang="ts">
-import WelcomeItem from "./WelcomeItem.vue";
-import DocumentationIcon from "./icons/IconDocumentation.vue";
-import ToolingIcon from "./icons/IconTooling.vue";
-import EcosystemIcon from "./icons/IconEcosystem.vue";
-import CommunityIcon from "./icons/IconCommunity.vue";
-import SupportIcon from "./icons/IconSupport.vue";
+import WelcomeItem from './WelcomeItem.vue'
+import DocumentationIcon from './icons/IconDocumentation.vue'
+import ToolingIcon from './icons/IconTooling.vue'
+import EcosystemIcon from './icons/IconEcosystem.vue'
+import CommunityIcon from './icons/IconCommunity.vue'
+import SupportIcon from './icons/IconSupport.vue'
 </script>
 
 <template>
@@ -16,8 +16,8 @@ import SupportIcon from "./icons/IconSupport.vue";
       </template>
       <template #heading> Documentation</template>
       <div>
-        Bhojan Shop provides you all in one solution for Gastronomy Business.
-        This software provides you the following services.
+        Bhojan Shop provides you all in one solution for Gastronomy Business. This software provides you the following
+        services.
         <ul class="list-disc list-inside">
           <li>Anroid Billing and order system at your restaurant</li>
           <li>Online order system of your restaurant</li>
@@ -35,8 +35,7 @@ import SupportIcon from "./icons/IconSupport.vue";
       </template>
       <template #heading>Online Data storage</template>
       <div>
-        This software saves all your sale at database system so that you can
-        check your sale from anywhere and any time
+        This software saves all your sale at database system so that you can check your sale from anywhere and any time
       </div>
     </WelcomeItem>
 
@@ -45,10 +44,7 @@ import SupportIcon from "./icons/IconSupport.vue";
         <EcosystemIcon />
       </template>
       <template #heading>Ecosystem</template>
-      <div>
-        Use of billing system-> online order system->balance sheet-> ->customer
-        analysis
-      </div>
+      <div>Use of billing system-> online order system->balance sheet-> ->customer analysis</div>
     </WelcomeItem>
 
     <WelcomeItem>
@@ -65,9 +61,8 @@ import SupportIcon from "./icons/IconSupport.vue";
       </template>
       <template #heading>Support Bhojanshop</template>
       <div>
-        Bhojan Shop relies on community backing for its sustainability. Please
-        support us by providing your feedback and your creative ideas to improve
-        or maintain the best quality.
+        Bhojan Shop relies on community backing for its sustainability. Please support us by providing your feedback and
+        your creative ideas to improve or maintain the best quality.
       </div>
     </WelcomeItem>
   </div>
