@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
     <h1 class="mt-4 py-4 text-center text-2xl font-extrabold text-gray-600">Bhojan Shop</h1>
     <img alt="Vue logo" class="w-full object-cover rounded-lg shadow-sm" src="@/assets/logo-removebg.png" />
 
-    <div class="flex flex-row min-w-full">
+    <div class="flex flex-col min-w-full">
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>

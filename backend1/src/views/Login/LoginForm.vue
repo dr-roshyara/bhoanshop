@@ -3,7 +3,7 @@
     <!-- <section class="mx-auto md:max-w-2xl"> -->
     <div class="min-w-screen min-h-screen flex flex-col items-center justify-center">
       <section
-        class="bg-slate-50 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden p-2 md:p-6"
+        class="text-gray-500 bg-slate-50 rounded-3xl shadow-xl w-full overflow-hidden p-2 md:p-6"
         style="max-width: 1000px">
         <h1 class="text-center font-bold text-gray-700 text-xl">Login form</h1>
         <div class="mx-auto w-full h-full text-gray-800">

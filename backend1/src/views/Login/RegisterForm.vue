@@ -1,7 +1,7 @@
 <template>
   <guest-layout>
     <div class="min-w-screen min-h-screen flex items-center justify-center md:p-2">
-      <div class="bg-slate-50 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width: 1000px">
+      <div class="text-gray-500 bg-slate-50 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width: 1000px">
         <div class="md:flex w-full">
           <div class="w-full py-10 px-2 md:px-10">
             <div class="text-center mb-10">

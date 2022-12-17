@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-center items-center">
     <button @click="store.logout()">Logout</button>
-    <p class="px-2 py-4 bg-green-100 w-96 font-bold rounded-lg hover:bg-indigo-300">
+    <p class="px-2 py-4 bg-lime-50 w-96 font-bold rounded-lg hover:bg-indigo-300">
       <router-link to="/restaurant">Register your Restaurant </router-link>
     </p>
     <h1>Dashboard of {{ store.authUser?.name }}</h1>
