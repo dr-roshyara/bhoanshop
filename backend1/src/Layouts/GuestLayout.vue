@@ -1,6 +1,6 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
-  <div class="flex flex-col md:flex-row justify-center items-center p-2 mx-auto rounded">
+  <div class="flex flex-col md:flex-row justify-center p-2 mx-auto rounded">
     <div class="w-full md:w-1/3 md:min-h-screen p-2 mb-2 bg-slate-50">
       <left-side> </left-side>
     </div>

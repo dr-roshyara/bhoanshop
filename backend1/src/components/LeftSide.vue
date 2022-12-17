@@ -3,7 +3,7 @@
 import { RouterLink } from 'vue-router'
 </script>
 <template>
-  <header class="flex flex-col items-center w-full">
+  <header class="flex flex-col w-full">
     <h1 class="mt-4 py-4 text-center text-2xl font-extrabold text-gray-600">Bhojan Shop</h1>
     <img alt="Vue logo" class="w-full object-cover rounded-lg shadow-sm" src="@/assets/logo-removebg.png" />
 

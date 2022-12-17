@@ -18,9 +18,49 @@
               <text-input
                 v-model="restaurant.name"
                 type="text"
-                name="namastenepal"
-                labelName="Name"
+                name="namaste"
+                labelName="Restaurnt Name"
                 class="mt-1 block w-full"></text-input>
+              <!-- next  -->
+              <fieldset class="border-solid border-2 border-slate-300 p-2 m-3 rounded-lg">
+                <legend class="font-bold text-gray-700 px-4">Address</legend>
+                <div class="flex flex-wrap">
+                  <text-input
+                    v-model="restaurant.street"
+                    name="owner-name"
+                    type="text"
+                    class="mt-1 block max-w-lg"
+                    required
+                    label-name="Street name"></text-input>
+                  <text-input
+                    v-model="restaurant.houseNumber"
+                    name="owner-name"
+                    type="text"
+                    class="mt-1 block max-w-sm"
+                    required
+                    label-name="House number"></text-input>
+                </div>
+                <!-- next  -->
+                <div class="flex flex-wrap">
+                  <text-input
+                    v-model="restaurant.postalcode"
+                    name="owner-name"
+                    type="text"
+                    class="mt-1 block max-w-sm"
+                    required
+                    label-name="Postal code"></text-input>
+
+                  <text-input
+                    v-model="restaurant.city"
+                    name="owner-name"
+                    type="text"
+                    class="mt-1 block max-w-md"
+                    required
+                    label-name="City"></text-input>
+                </div>
+              </fieldset>
+              <!-- next  -->
+
               <!-- next  -->
               <text-input
                 v-model="restaurant.ownerName"
@@ -30,6 +70,7 @@
                 required
                 label-name="Owner's name"></text-input>
               <!-- next  -->
+
               <text-input
                 v-model="restaurant.contactPerson"
                 name="contact-person"
@@ -62,7 +103,44 @@
                 class="mt-1 block w-full"
                 required
                 label-name="VatId*"></text-input>
-
+              <!-- next  -->
+              <fieldset class="border-solid border-2 border-slate-300 p-2 m-3 rounded-lg">
+                <legend class="font-bold text-gray-700 px-4">First shipft/ On going time</legend>
+                <text-input
+                  v-model="restaurant.opensAt"
+                  name="opensAt"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  label-name="Opens At *"></text-input>
+                <!-- next  -->
+                <text-input
+                  v-model="restaurant.closesAt"
+                  name="closesAt"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  label-name="Closes at *"></text-input>
+              </fieldset>
+              <!-- second opening time  -->
+              <fieldset class="border-solid border-2 border-slate-300 p-2 m-3 rounded-lg">
+                <legend class="font-bold text-gray-700 px-4">Second shift</legend>
+                <text-input
+                  v-model="restaurant.opensAt1"
+                  name="opensAt"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  label-name="Opens At *"></text-input>
+                <!-- next  -->
+                <text-input
+                  v-model="restaurant.closesAt1"
+                  name="closesAt1"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  label-name="Closes at *"></text-input>
+              </fieldset>
               <submit-button title="Register"></submit-button>
             </form>
           </div>
@@ -91,11 +169,19 @@ export default defineComponent({
     // const auth = useAuthStore();
     const restaurant = reactive({
       name: '' as string,
+      street: '' as string,
+      houseNumber: '' as string,
+      postalcode: '' as string,
+      city: '' as string,
       ownerName: '' as string,
       contactPerson: '' as string,
       telephone: '' as string,
       email: '' as string,
       vatId: '' as string,
+      opensAt: '' as string,
+      closesAt: '' as string,
+      opensAt1: '' as string,
+      closesAt1: '' as string,
     })
     const registerFn = async () => {
       console.log(restaurant)
