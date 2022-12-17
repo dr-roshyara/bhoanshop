@@ -1,1 +1,0 @@
-import{_ as o,r as t,o as a,c as r,b as s,w as n,F as c,a as _,d as l}from"./index.4edff7dd.js";const d={},i=_("h1",null,"Dashboard form",-1);function p(u,f,m,h,x,k){const e=t("router-link");return a(),r(c,null,[i,s(e,{to:"/login"},{default:n(()=>[l("Go to Login")]),_:1})],64)}const b=o(d,[["render",p]]);export{b as default};
