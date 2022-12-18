@@ -3,9 +3,11 @@
 import { RouterLink } from 'vue-router'
 </script>
 <template>
+  <!-- src="@/assets/logo-removebg.png" /> -->
+
   <header class="flex flex-col w-full">
-    <h1 class="mt-4 py-4 text-center text-2xl font-extrabold text-gray-600">Bhojan Shop</h1>
-    <img alt="Vue logo" class="w-full object-cover rounded-lg shadow-sm" src="@/assets/logo-removebg.png" />
+    <h1 class="mt-4 py-4 text-center text-4xl font-extrabold text-lime-400">Bhojan Shop</h1>
+    <img alt="Vue logo" class="w-64 mx-auto object-cover rounded-lg shadow-sm" src="@/assets/logo-removebg.png" />
 
     <div class="flex flex-col min-w-full">
       <nav>
@@ -32,7 +34,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: rgb(147, 238, 9);
 }
 
 nav a.router-link-exact-active:hover {
