@@ -1,12 +1,13 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
-  <div class="flex flex-col md:flex-row justify-center p-2 mx-auto rounded">
-    <div class="w-full md:w-1/4 md:min-h-screen p-2 mb-2 bg-slate-100">
+  <div class="flex flex-col md:flex-row justify-center mx-auto rounded p-1 bg-slate-100">
+    <navbar class="w-full md:flex-none md:w-96 md:min-h-screen p-2 mb-2 bg-slate-100 rouned-sm">
       <left-side> </left-side>
-    </div>
-    <div class="rightSide w-full p-2 mx-auto md:min-h-screen shadow-lg bg-sky-50">
+    </navbar>
+    <main
+      class="w-full md:flex-1 rightSide overflow-auto p-2 mx-auto md:min-h-screen shadow-lg bg-sky-50 border border-3 border-sky-100">
       <slot></slot>
-    </div>
+    </main>
   </div>
 </template>
 

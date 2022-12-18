@@ -1,6 +1,6 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
-  <div class="item">
+  <div class="item shadow-inner">
     <i class="items-stretch">
       <slot name="icon"></slot>
     </i>
