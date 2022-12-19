@@ -3,8 +3,8 @@
 import type { App } from 'vue'
 
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAuthStore } from '@/stores/auth-store'
-import authMiddleware from '@/router/middleware/auth-middleware'
+// import { useAuthStore } from '@/stores/auth-store'
+// import authMiddleware from '@/router/middleware/auth-middleware'
 import restaurantRoutes from '@/router/restaurant-router'
 import publicRoutes from '@/router/public-router'
 import userRoutes from '@/router/user-router'

@@ -28,7 +28,7 @@ export default {
   },
   remove(key: string) {
     localStorage.removeItem(key)
-    this.clear()
+    // this.clear()
   },
   clear() {
     localStorage.clear()

@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
 
   <header class="flex flex-col w-full">
     <h1 class="mt-4 py-4 text-center text-4xl font-extrabold text-lime-400">Bhojan Shop</h1>
-    <img alt="Vue logo" class="w-64 mx-auto object-cover rounded-lg shadow-sm" src="@/assets/logo-removebg.png" />
+    <img alt="Vue logo" class="w-64 mx-auto object-cover rounded-lg shadow-sm" src="@/assets/logo/logo-removebg.png" />
 
     <div class="flex flex-col min-w-full">
       <nav>

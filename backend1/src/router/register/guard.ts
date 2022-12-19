@@ -16,9 +16,8 @@ class Guard {
     errorStore().resetError()
     const _token = this.token()
     const _requiresAuth = to.meta.requiresAuth
-    if (to.path == '/login') {
+    if (to.path == '/login' || to.path == '/') {
       store.remove(CacheEnum.TOKEN_NAME)
-      localStorage.clear() // always clean localStorage before reset the state
     }
     // console.log(_requiresAuth)
     // console.log(_token)

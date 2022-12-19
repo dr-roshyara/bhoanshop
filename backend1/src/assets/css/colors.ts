@@ -1,7 +1,7 @@
-/* eslint-disable prettier/prettier */
+import type { ColorButtonKey } from '@/types/layout'
+
 export const gradientBgBase = 'bg-gradient-to-tr'
-export const gradientBgPurplePink = `${gradientBgBase}
-from-purple-400 via-pink-500 to-red-500`
+export const gradientBgPurplePink = `${gradientBgBase} from-purple-400 via-pink-500 to-red-500`
 export const gradientBgDark = `${gradientBgBase} from-slate-700 via-slate-900 to-slate-800`
 export const gradientBgPinkRed = `${gradientBgBase} from-pink-400 via-red-500 to-yellow-500`
 
@@ -26,16 +26,20 @@ export const colorsText = {
 }
 
 export const colorsOutline = {
-  white: [colorsText.white, 'border-gray-100'],
-  light: [colorsText.light, 'border-gray-100'],
-  contrast: [colorsText.contrast, 'border-gray-900 dark:border-slate-100'],
-  success: [colorsText.success, 'border-emerald-500'],
-  danger: [colorsText.danger, 'border-red-500'],
-  warning: [colorsText.warning, 'border-yellow-500'],
-  info: [colorsText.info, 'border-blue-500'],
+  white: [colorsText.white, 'border-gray-100'].join(' '),
+  light: [colorsText.light, 'border-gray-100'].join(' '),
+  contrast: [colorsText.contrast, 'border-gray-900 dark:border-slate-100'].join(' '),
+  success: [colorsText.success, 'border-emerald-500'].join(' '),
+  danger: [colorsText.danger, 'border-red-500'].join(' '),
+  warning: [colorsText.warning, 'border-yellow-500'].join(' '),
+  info: [colorsText.info, 'border-blue-500'].join(' '),
 }
 
-export const getButtonColor = (color, isOutlined, hasHover, isActive = false) => {
+export const getButtonColor = (colorType: ColorButtonKey, isOutlined: boolean, hasHover: boolean, isActive = false) => {
+  if (colorType === 'void') {
+    return ''
+  }
+
   const colors = {
     ring: {
       white: 'ring-gray-200 dark:ring-gray-500',
@@ -88,6 +92,7 @@ export const getButtonColor = (color, isOutlined, hasHover, isActive = false) =>
       info: 'border-blue-600 dark:border-blue-500',
     },
     text: {
+      white: 'text-black dark:text-slate-100',
       contrast: 'dark:text-slate-100',
       success: 'text-emerald-600 dark:text-emerald-500',
       danger: 'text-red-600 dark:text-red-500',
@@ -95,6 +100,7 @@ export const getButtonColor = (color, isOutlined, hasHover, isActive = false) =>
       info: 'text-blue-600 dark:text-blue-500',
     },
     outlineHover: {
+      white: [colorsText.white, 'border-gray-100'].join(' '),
       contrast: 'hover:bg-gray-800 hover:text-gray-100 hover:dark:bg-slate-100 hover:dark:text-black',
       success:
         'hover:bg-emerald-600 hover:text-white hover:text-white hover:dark:text-white hover:dark:border-emerald-600',
@@ -105,23 +111,19 @@ export const getButtonColor = (color, isOutlined, hasHover, isActive = false) =>
     },
   }
 
-  if (!colors.bg[color]) {
-    return color
-  }
+  const isOutlinedProcessed = isOutlined && ['white', 'whiteDark', 'lightDark'].indexOf(colorType) < 0
 
-  const isOutlinedProcessed = isOutlined && ['white', 'whiteDark', 'lightDark'].indexOf(color) < 0
-
-  const base = [colors.borders[color], colors.ring[color]]
+  const base = [colors.borders[colorType], colors.ring[colorType]]
 
   if (isActive) {
-    base.push(colors.active[color])
+    base.push(colors.active[colorType])
   } else {
-    base.push(isOutlinedProcessed ? colors.text[color] : colors.bg[color])
+    base.push(isOutlinedProcessed ? colors.text[colorType] : colors.bg[colorType])
   }
 
   if (hasHover) {
-    base.push(isOutlinedProcessed ? colors.outlineHover[color] : colors.bgHover[color])
+    base.push(isOutlinedProcessed ? colors.outlineHover[colorType] : colors.bgHover[colorType])
   }
 
-  return base
+  return base.join(' ')
 }
