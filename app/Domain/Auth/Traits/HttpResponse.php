@@ -15,7 +15,7 @@ trait HttpResponse {
          ], $code);
     }
 
-    protected function error($data,$message=null, $code){
+    protected function error($data, $code,$message=null){
         header('Content-Type: application/json; charset=utf-8');
          return response()->json([
             'status'=> 'An error has occured',
