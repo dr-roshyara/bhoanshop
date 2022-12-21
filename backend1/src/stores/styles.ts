@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { defineStore } from 'pinia'
 import * as styles from '@/assets/css/styles'
@@ -17,6 +16,13 @@ export interface StyleState extends Record<string, any> {
   navBarItemLabelActiveColorStyle: string
   overlayStyle: string
   darkMode: boolean
+}
+export interface MobileStyle extends Record<string, any> {
+  showAside: boolean
+  showDropdown: boolean
+  asideWidth: string
+  setAside: string
+  removeAside: string
 }
 const initialState: StyleState = {
   leftSideColor: 'bg-blue-900',
@@ -37,10 +43,25 @@ export const useStyleStore = defineStore('style', {
   state: () => {
     return {
       initialState,
+      isMobileAsideOpen: false,
+      mobileStyle: {
+        showAside: false,
+        asideWidth: 'w-72',
+        setAside: 'ml-72',
+        removeAside: 'ml-2',
+        showDropdown: false,
+      } as MobileStyle,
       // darkMode: false as Boolean,
     }
   },
   actions: {
+    setMobileAsideState() {
+      this.isMobileAsideOpen = !this.isMobileAsideOpen
+      this.mobileStyle.showAside = !this.mobileStyle.showAside
+    },
+    showDropdown() {
+      this.mobileStyle.showDropdown != this.mobileStyle.showDropdown
+    },
     setStyle(payload: StyleKey) {
       if (!styles[payload]) {
         return
@@ -58,7 +79,6 @@ export const useStyleStore = defineStore('style', {
       //
       for (const key in style) {
         // console.log(style)
-        // console.log(style[key])
         style[key as keyof typeof style]
         type _T = keyof typeof this.initialState
         const _getKey = `${key}Style` as _T

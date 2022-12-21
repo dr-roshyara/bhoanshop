@@ -1,6 +1,6 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
-  <guest-layout>
+  <auth-layout>
     <div class="min-w-screen min-h-screen flex flex-col items-center justify-center">
       <section
         class="text-gray-500 bg-slate-50 rounded-3xl shadow-xl w-full overflow-hidden p-2 md:p-6"
@@ -147,12 +147,12 @@
         </div>
       </section>
     </div>
-  </guest-layout>
+  </auth-layout>
 </template>
 <script lang="ts">
 import TextInput from '@/Components/Form/TextInput.vue'
 import { defineComponent, reactive, ref } from 'vue'
-import GuestLayout from '@/Layouts/GuestLayout.vue'
+import AuthLayout from '@/Layouts/AuthLayout.vue'
 import SubmitButton from '@/Components/SubmitButton.vue'
 import type { Ref } from 'vue'
 // import { useAuthStore } from "@/stores/auth-store";
@@ -208,7 +208,7 @@ export default defineComponent({
   },
   components: {
     TextInput,
-    GuestLayout,
+    AuthLayout,
     SubmitButton,
   },
 })
