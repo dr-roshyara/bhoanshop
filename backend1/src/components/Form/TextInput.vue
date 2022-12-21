@@ -2,7 +2,6 @@
 
 <script setup lang="ts">
 import { placeholder } from '@babel/types'
-import { defineProps, defineEmits, defineExpose } from 'vue'
 import { ref, onMounted } from 'vue'
 const input = ref<HTMLInputElement | null>(null)
 onMounted(() => {
