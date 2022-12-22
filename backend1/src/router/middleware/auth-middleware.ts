@@ -31,7 +31,7 @@ export default (to: any, from: any, next: any) => {
    * IF THE USER IS LOGGED IN
    */
   if (auth.authUser.isLoggedIn && isGoingExceptionalRoutes) {
-    next({ name: 'home', query: { 'redirect-reason': 'already logged' } })
+    next({ name: 'dashboard', query: { 'redirect-reason': 'already logged' } })
   } else {
     next()
   }

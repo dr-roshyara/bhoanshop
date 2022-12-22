@@ -4104,6 +4104,13 @@
     "@vue/server-renderer" "3.2.45"
     "@vue/shared" "3.2.45"
 
+"vue3-cookies@^1.0.6":
+  "integrity" "sha512-a1UvVD0qIgxyOqjlSOwnLnqAnz8ASltugEv8yX+96i/WGZAN9fEDci7xO4HIWZE1uToUnRq9JnFhvfDCSo45OA=="
+  "resolved" "https://registry.npmjs.org/vue3-cookies/-/vue3-cookies-1.0.6.tgz"
+  "version" "1.0.6"
+  dependencies:
+    "vue" "^3.0.0"
+
 "w3c-xmlserializer@^4.0.0":
   "integrity" "sha512-d+BFHzbiCx6zGfz0HyQ6Rg69w9k19nviJspaj4yNscGjrHu94sVP+aRm75yEbCh+r2/yR+7q6hux9LVtbuTGBw=="
   "resolved" "https://registry.npmjs.org/w3c-xmlserializer/-/w3c-xmlserializer-4.0.0.tgz"

@@ -3,12 +3,13 @@
 import type { App } from 'vue'
 
 import { createRouter, createWebHistory } from 'vue-router'
-// import { useAuthStore } from '@/stores/auth-store'
+import { useAuthStore } from '@/stores/auth-store'
 // import authMiddleware from '@/router/middleware/auth-middleware'
 import restaurantRoutes from '@/router/restaurant-router'
 import publicRoutes from '@/router/public-router'
 import userRoutes from '@/router/user-router'
 import guard from '@/router/register/guard'
+import VueCookies from 'vue3-cookies'
 export const router = createRouter({
   history: createWebHistory(),
   linkActiveClass: 'active',
@@ -16,12 +17,13 @@ export const router = createRouter({
 })
 export function setupRouter(app: App) {
   app.use(router)
+  app.use(VueCookies)
   guard(router)
 
   return
   // here router will be setup.
 }
-// router.addRoute(restaurantRoutes);
+// router.addRoute(restaurantRoutes)
 // router.beforeEach(authMiddleware)
 // router.beforeEach(async (to) => {
 //   /**
@@ -29,7 +31,7 @@ export function setupRouter(app: App) {
 //    * time being
 //    */
 //   // redirect to login page if not logged in and trying to access a restricted page
-//   const publicPages = ['/', '/login', '/register', '/about', '/reqpass', '/respass', '/restaurant']
+//   const publicPages = ['/', '/login', '/register', '/about', '/reqpass', '/respass']
 //   const authRequired = !publicPages.includes(to.path)
 //   const authStore = useAuthStore()
 

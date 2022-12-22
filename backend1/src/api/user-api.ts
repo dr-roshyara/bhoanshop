@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios'
+axios.defaults.withCredentials = true
 import middleware401 from '@/api/middleware-401'
 
 /**
