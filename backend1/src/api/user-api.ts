@@ -27,6 +27,10 @@ export const useApi = (endpoint = 'api', path = '/') => {
       'X-Requested-With': 'XMLHttpRequest',
       //   "Content-Type": "application/vnd.api+json",
       Accept: 'application/vnd.api+json',
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Allow-Methods': 'OPTIONS, GET, POST',
+      'Access-Control-Allow-Headers':
+        'Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control',
     },
     withCredentials: true,
   })
