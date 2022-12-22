@@ -15,6 +15,7 @@ class AuthController extends Controller
     use HttpResponse;
 
     public function login(LoginRequest $request){
+        header("Access-Control-Allow-Origin: *");
        $request->validated($request->all());
         //get the credentials
         $credentials = $request->only('email', 'password');
@@ -43,7 +44,7 @@ class AuthController extends Controller
      *
      */
      public function register(StoreUserRequest $request){
-
+        header("Access-Control-Allow-Origin: *");
         // return "test";
         // return $request->all();
         try{

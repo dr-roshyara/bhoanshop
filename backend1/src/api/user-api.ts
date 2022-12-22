@@ -22,7 +22,8 @@ export const useApi = (endpoint = 'api', path = '/') => {
   const axiosInstance = axios.create({
     baseURL,
     headers: {
-      'Access-Control-Allow-Origin': baseURL + path,
+      'Access-Control-Allow-Origin': '*',
+      // 'Access-Control-Allow-Origin': baseURL + path,
       'X-Requested-With': 'XMLHttpRequest',
       //   "Content-Type": "application/vnd.api+json",
       Accept: 'application/vnd.api+json',
