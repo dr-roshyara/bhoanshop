@@ -16,6 +16,7 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request){
         header("Access-Control-Allow-Origin: *");
+        header('Set-Cookie: cross-site-cookie=name; SameSite=None; Secure');
        $request->validated($request->all());
         //get the credentials
         $credentials = $request->only('email', 'password');
@@ -45,6 +46,7 @@ class AuthController extends Controller
      */
      public function register(StoreUserRequest $request){
         header("Access-Control-Allow-Origin: *");
+        header('Set-Cookie: cross-site-cookie=name; SameSite=None; Secure');
         // return "test";
         // return $request->all();
         try{
