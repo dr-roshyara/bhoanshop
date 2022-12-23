@@ -15,7 +15,7 @@ class AuthController extends Controller
     use HttpResponse;
 
     public function login(LoginRequest $request){
-        header("Access-Control-Allow-Origin: *");
+        // header("Access-Control-Allow-Origin: *");
         header('Set-Cookie: cross-site-cookie=name; SameSite=None; Secure');
        $request->validated($request->all());
         //get the credentials
