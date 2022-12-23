@@ -32,10 +32,12 @@ export const useAuthStore = defineStore('user', {
       const LOGIN_URL = 'https://bhojan.shop/api/login'
       const SANCTUM_URL = 'https://bhojan.shop/sanctum/csrf-cookie'
 
-      // console.log(LOGIN_URL);
+      console.log(LOGIN_URL)
       try {
         const sanctum_response = await axios.get(SANCTUM_URL)
-        console.log(sanctum_response.headers)
+        console.log(sanctum_response.config.headers)
+        console.log(sanctum_response.config.transformResponse)
+
         const response = await axios.post(LOGIN_URL, {
           email: logUser.email,
           password: logUser.password,
