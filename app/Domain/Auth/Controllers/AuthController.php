@@ -9,6 +9,9 @@ use App\Domain\Users\Request\LoginRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Domain\Users\Models\User;
 use Illuminate\Support\Facades\Auth as Authnicator;
+header("Access-Control-Allow-Headers: Authorization, Content-Type");
+header("Access-Control-Allow-Origin: *");
+header('content-type: application/json; charset=utf-8');
 class AuthController extends Controller
 {
     //
