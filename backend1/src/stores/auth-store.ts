@@ -30,8 +30,11 @@ export const useAuthStore = defineStore('user', {
     async login(logUser: LoginUser) {
       // const LOGIN_URL = import.meta.env.VITE_API_URL + "/login";
       const LOGIN_URL = 'https://bhojan.shop/api/login'
+      const SANCTUM_URL = 'https://bhojan.shop/sanctum/csrf-cookie'
+
       // console.log(LOGIN_URL);
       try {
+        await axios.get(SANCTUM_URL)
         const response = await axios.post(LOGIN_URL, {
           email: logUser.email,
           password: logUser.password,
