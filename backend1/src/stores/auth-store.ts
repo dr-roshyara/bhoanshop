@@ -79,8 +79,12 @@ export const useAuthStore = defineStore('user', {
     //sign up function
     async register(user: NewUser) {
       const REGISTER_URL = import.meta.env.VITE_API_URL + '/register'
+      const SANCTUM_URL = import.meta.env.VITE_API_URL + '/sanctum/csrf-cookie'
+
       console.log(REGISTER_URL)
       try {
+        // const response_sanctum = await axios.post(SANCTUM_URL)
+        // console.log(response_sanctum)
         const response = await axios.post(REGISTER_URL, user)
         console.log(response.data.user)
         this.$state.authUser = response.data.user
