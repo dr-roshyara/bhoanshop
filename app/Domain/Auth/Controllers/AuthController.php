@@ -36,8 +36,8 @@ class AuthController extends Controller
             'isAdmin'   =>$user->is_admin,
             'isOwner'  =>$user->is_owner,
             'isWaiter'  =>$user->is_waiter,
-            'token'     =>$user->createToken('Api Token of '.$user->first_name)->plainTextToken
-
+            'token'     =>$user->createToken('Api Token of '.$user->first_name)->plainTextToken,
+            'csrf_token'=>csrf_token()
         ];
         return $this->success($_loggedUser, $message="Request was successful");
     }

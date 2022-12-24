@@ -5,8 +5,9 @@ import type { LoginUser } from '@/types/store'
 import type { NewUser } from '@/types/store'
 import type { LoggedUser } from '@/types/store'
 // import type LoggedUser from "@/types/store";
-import { setAuthUser, loginCallback, logout } from '@/utils/helper'
-import axios from 'axios'
+import { setAuthUser, loginCallback, logout } from '@/api/helper'
+// import axios from 'axios'
+import apiClient from '@/api/api'
 import { router } from '@/router/register/index'
 //Read this page to understand authnication via axios
 // https://upmostly.com/vue-js/how-to-use-vue-with-pinia-to-set-up-authentication
@@ -19,6 +20,7 @@ export const useAuthStore = defineStore('user', {
       authUser: null as LoggedUser | null,
       errorMessage: 'Either user email or password is wrong.' as string,
       loginError: false as Boolean,
+      loading: false as Boolean,
     }
   },
   getters: {
@@ -28,23 +30,27 @@ export const useAuthStore = defineStore('user', {
   },
   actions: {
     async login(logUser: LoginUser) {
-      const LOGIN_URL = import.meta.env.VITE_API_URL + '/login'
-      const SANCTUM_URL = import.meta.env.VITE_BASE_URL + '/sanctum/csrf-cookie'
+      // const LOGIN_URL = import.meta.env.VITE_API_URL + '/login'
+      // const SANCTUM_URL = mport.meta.env.VITE_BASE_URL + '/sanctum/csrf-cookie'
+      const LOGIN_URL = '/api/login'
+      const SANCTUM_URL = '/sanctum/csrf-cookie'
+
       console.log(LOGIN_URL)
+      //start login
+      this.loading = true
       try {
-        const sanctum_response = await axios.get(SANCTUM_URL)
+        const sanctum_response = await apiClient.get(SANCTUM_URL)
         console.log(sanctum_response.config)
         // console.log(sanctum_response.config.transformResponse)
 
-        const response = await axios.post(LOGIN_URL, {
+        const response = await apiClient.post(LOGIN_URL, {
           email: logUser.email,
           password: logUser.password,
         })
-        // console.log(response.data.user);
+        console.log(response.data.user)
         this.$state.authUser = response.data.user
         this.updateLocalStorage(response)
-
-        await router.push({ path: '/dashboard' })
+        // await router.push({ path: '/dashboard' })
         return {
           user: response.data.user,
           loginError: this.$state.loginError,
@@ -55,6 +61,7 @@ export const useAuthStore = defineStore('user', {
         return this.showLoginError()
         throw error
       }
+      this.loading = false
     },
     updateLocalStorage(response: any) {
       if (this.$state.authUser) {
@@ -85,7 +92,7 @@ export const useAuthStore = defineStore('user', {
       try {
         // const response_sanctum = await axios.post(SANCTUM_URL)
         // console.log(response_sanctum)
-        const response = await axios.post(REGISTER_URL, user)
+        const response = await apiClient.post(REGISTER_URL, user)
         console.log(response.data.user)
         this.$state.authUser = response.data.user
         console.log(this.$state.authUser)

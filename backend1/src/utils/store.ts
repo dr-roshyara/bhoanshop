@@ -8,7 +8,7 @@ export default {
     // if exipre time is less than or equal to zero then do not save
     if (expire <= 0) return
     //otherwise
-    let cache: IData = { data }
+    const cache: IData = { data }
     cache.expire = new Date().getTime() + expire * 1000
     localStorage.setItem(key, JSON.stringify(cache))
   },

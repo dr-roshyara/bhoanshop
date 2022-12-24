@@ -36,7 +36,7 @@ export const useApi = (endpoint = 'api', path = '/') => {
   })
 
   // axiosInstance.interceptors.response.use((resp) => resp)
-  axiosInstance.interceptors.response.use((resp) => resp, middleware401)
+  // axiosInstance.interceptors.response.use((resp) => resp, middleware401)
 
   return axiosInstance
 }
