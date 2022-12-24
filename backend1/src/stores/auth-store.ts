@@ -6,7 +6,6 @@ import type { NewUser } from '@/types/store'
 import type { LoggedUser } from '@/types/store'
 // import type LoggedUser from "@/types/store";
 import { setAuthUser, loginCallback, logout } from '@/api/helper'
-// import axios from 'axios'
 import apiClient from '@/api/api'
 import { router } from '@/router/register/index'
 //Read this page to understand authnication via axios
