@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
-        'https://admin.bhojan.shop/',
+        'https://admin.bhojan.shop/*',
+        'https://localhost:5173/*'
     ];
 }

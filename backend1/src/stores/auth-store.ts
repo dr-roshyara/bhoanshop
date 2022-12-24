@@ -34,7 +34,7 @@ export const useAuthStore = defineStore('user', {
       console.log(LOGIN_URL)
       try {
         const sanctum_response = await axios.get(SANCTUM_URL)
-        console.log(sanctum_response.config.headers)
+        console.log(sanctum_response.config)
         console.log(sanctum_response.config.transformResponse)
 
         const response = await axios.post(LOGIN_URL, {
