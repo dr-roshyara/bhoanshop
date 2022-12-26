@@ -49,7 +49,7 @@ export const useAuthStore = defineStore('user', {
         console.log(response.data.user)
         this.$state.authUser = response.data.user
         this.updateLocalStorage(response)
-        // await router.push({ path: '/dashboard' })
+        await router.push({ path: '/dashboard' })
         return {
           user: response.data.user,
           loginError: this.$state.loginError,
@@ -71,7 +71,7 @@ export const useAuthStore = defineStore('user', {
         // const user = localStorage.getItem("user");
         // console.log(user);
       } else {
-        localStorage.removeItem('user')
+        localStorage.removeItem('auth_user')
       }
     },
     showLoginError() {

@@ -7,7 +7,7 @@ import type { LoggedUser } from '@/types/store'
  */
 export async function loginCallback(token: string) {
   store.set(CacheEnum.TOKEN_NAME, token)
-  location.href = store.get(CacheEnum.REDIRECT_ROUTE_NAME, '/dashboard')
+  // location.href = store.get(CacheEnum.REDIRECT_ROUTE_NAME, '/dashboard')
 }
 /**
  *Record token after login and registration
