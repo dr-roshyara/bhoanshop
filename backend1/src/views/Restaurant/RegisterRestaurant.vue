@@ -184,7 +184,7 @@ export default defineComponent({
       closesAt1: '' as string,
     })
     const registerFn = async () => {
-      console.log(restaurant)
+      // console.log(restaurant)
       errorMessage.value = ''
       //   const response = await auth.register(user);
       //   // console.log(response);
@@ -203,7 +203,7 @@ export default defineComponent({
   },
   methods: {
     register() {
-      console.log('register function')
+      // console.log('register function')
     },
   },
   components: {

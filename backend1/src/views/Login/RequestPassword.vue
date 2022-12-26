@@ -33,7 +33,7 @@ export default defineComponent({
     const email = ref('')
     // email.value = "info@namastenepal.de";
     const onSbumitFn = async () => {
-      console.log(email)
+      // console.log(email)
     }
     return { email, onSbumitFn }
   },

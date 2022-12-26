@@ -34,19 +34,19 @@ export const useAuthStore = defineStore('user', {
       const LOGIN_URL = '/api/login'
       const SANCTUM_URL = '/sanctum/csrf-cookie'
 
-      console.log(LOGIN_URL)
+      // console.log(LOGIN_URL)
       //start login
       this.loading = true
       try {
         const sanctum_response = await apiClient.get(SANCTUM_URL)
-        console.log(sanctum_response.config)
+        // console.log(sanctum_response.config)
         // console.log(sanctum_response.config.transformResponse)
 
         const response = await apiClient.post(LOGIN_URL, {
           email: logUser.email,
           password: logUser.password,
         })
-        console.log(response.data.user)
+        // console.log(response.data.user)
         this.$state.authUser = response.data.user
         this.updateLocalStorage(response)
         await router.push({ path: '/dashboard' })
@@ -87,16 +87,15 @@ export const useAuthStore = defineStore('user', {
       const REGISTER_URL = import.meta.env.VITE_API_URL + '/register'
       const SANCTUM_URL = import.meta.env.VITE_API_URL + '/sanctum/csrf-cookie'
 
-      console.log(REGISTER_URL)
+      // console.log(REGISTER_URL)
       try {
         // const response_sanctum = await axios.post(SANCTUM_URL)
         // console.log(response_sanctum)
         const response = await apiClient.post(REGISTER_URL, user)
-        console.log(response.data.user)
+        // console.log(response.data.user)
         this.$state.authUser = response.data.user
-        console.log(this.$state.authUser)
+        // console.log(this.$state.authUser)
         this.updateLocalStorage(response)
-
         await router.push({ path: '/dashboard' })
         return {
           user: response.data.user,

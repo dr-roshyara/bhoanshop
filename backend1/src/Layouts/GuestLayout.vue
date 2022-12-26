@@ -31,7 +31,7 @@ export default defineComponent({
   },
   data() {
     return {
-      test: console.log(this.styleStore),
+      // test: console.log(this.styleStore),
     }
   },
   components: {

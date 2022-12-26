@@ -77,7 +77,7 @@ export default defineComponent({
   },
   methods: {
     register() {
-      console.log('register function')
+      // console.log('register function')
     },
   },
   components: {

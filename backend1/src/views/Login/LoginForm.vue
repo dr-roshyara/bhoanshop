@@ -115,7 +115,7 @@ export default defineComponent({
       //   console.log(credentials);
       errorMessage.value = ''
       const response = await auth.login(credentials)
-      console.log(response)
+      // console.log(response)
       if (response?.loginError) {
         errorMessage.value = response.errorMessage
         loginError.value = true

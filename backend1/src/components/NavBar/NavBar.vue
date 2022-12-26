@@ -11,8 +11,8 @@ const styleStore = useStyleStore()
 
 const showIcon = () => {
   styleStore.setMobileAsideState()
-  console.log(styleStore.mobileStyle.showAside)
-  console.log(styleStore.mobileStyle.setAside)
+  // console.log(styleStore.mobileStyle.showAside)
+  // console.log(styleStore.mobileStyle.setAside)
 }
 const isMenuNavBarActive = ref(false)
 const checkMobileAside = computed(() => {
