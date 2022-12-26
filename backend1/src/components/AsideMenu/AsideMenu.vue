@@ -1,8 +1,8 @@
 <!-- eslint-disable prettier/prettier -->
 <script setup lang="ts">
-// import MenuLayer from './MenuLayer.vue'
+import MenuLayer from './MenuLayer.vue'
 </script>
 <template>
-  <!-- <MenuLayer /> -->
+  <MenuLayer />
   <!-- <div>test</div> -->
 </template>

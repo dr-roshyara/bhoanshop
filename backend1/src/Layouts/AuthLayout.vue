@@ -1,9 +1,9 @@
 <!-- eslint-disable prettier/prettier -->
 <script setup lang="ts">
 import { useStyleStore } from '@/stores/styles'
-// import menuAside from '@/utils/Clickmenu/aside-menu
+// import menuAside from '@/utils/Clickmenu/aside-menu'
 // import menuNavbar from '@/utils/MenuList/navbar-menu'
-// import AsideMenu from '@/Components/AsideMenu/AsideMenu.vue'
+import AsideMenu from '@/Components/AsideMenu/AsideMenu.vue'
 // import ItemPlain from '@/Components/NavBar/ItemPlain.vue'
 import NavBar from '@/Components/NavBar/NavBar.vue'
 import { useRouter } from 'vue-router'
@@ -19,6 +19,7 @@ router.beforeEach(() => {
   isAsideLgActive.value = false
 })
 const checkMobileAside = computed(() => {
+  // console.log(styleStore.mobileStyle.showAside)
   return styleStore.mobileStyle.showAside
 })
 </script>
@@ -32,7 +33,7 @@ const checkMobileAside = computed(() => {
     <!-- navbar first  -->
     <NavBar> </NavBar>
     <!-- aside menu  -->
-    <!-- <aside-menu v-if="checkMobileAside" class="-mx-2"></aside-menu> -->
+    <aside-menu v-if="checkMobileAside" class="-mx-2"></aside-menu>
 
     <!-- Here comes the right side of the Dashboard slot -->
     <div

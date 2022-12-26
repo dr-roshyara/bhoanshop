@@ -16,7 +16,7 @@ const styleStore = useStyleStore()
         <div class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
           <b class="font-black">Menu</b>
         </div>
-        Button
+        <!-- Button -->
         <!-- <button class="hidden lg:inline-block xl:hidden p-3">my button</button> -->
       </div>
       <div class="flex-1 overflow-y-auto overflow-x-hidden">
