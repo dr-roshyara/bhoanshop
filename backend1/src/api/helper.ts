@@ -32,5 +32,6 @@ export async function getAuthUser() {
 export async function logout() {
   // localStorage.clear() // always clean localStorage before reset the state
   store.remove(CacheEnum.TOKEN_NAME)
+  store.remove(CacheEnum.AUTH_USER)
   location.href = '/'
 }
