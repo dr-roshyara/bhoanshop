@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { appTheme } from '@/config'
+import { appTheme } from '@/assets/css/styles'
 import { useStyleStore } from '@/stores/styles'
 const styleStore = useStyleStore()
 </script>

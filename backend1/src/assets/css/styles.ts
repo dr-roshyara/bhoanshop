@@ -1,4 +1,22 @@
 /* eslint-disable prettier/prettier */
+interface ContainerTheme extends Record<string, any> {
+  bgNavbar: string
+  bgAside: string
+  bgMain: string
+  textAside: string
+  textMain: string
+  appTitle: string
+}
+
+export const containerMaxW = 'xl:max-w-6xl xl:mx-auto'
+export const appTheme: ContainerTheme = {
+  bgNavbar: 'bg-[#721f1f]',
+  bgAside: 'bg-[#0f172d]',
+  bgMain: 'bg-[#e9fce9]',
+  textAside: 'text-[#e9fce9]',
+  textMain: 'text-[#07031d]',
+  appTitle: 'Bhojan Shop',
+}
 export interface GuestStyleObject extends Record<string, any> {
   bgLeft: string
   bgRight: string
@@ -19,7 +37,7 @@ export interface StyleObject extends Record<string, any> {
 }
 
 export const basic: StyleObject = {
-  aside: 'bg-gray-800',
+  aside: appTheme.bgAside + ' ' + appTheme.textAside,
   asideScrollbars: 'aside-scrollbars-gray',
   asideBrand: 'bg-gray-900 text-white',
   asideMenuItem: 'text-gray-300 hover:text-white',
@@ -32,7 +50,7 @@ export const basic: StyleObject = {
 }
 
 export const white: StyleObject = {
-  aside: 'bg-white',
+  aside: appTheme.bgAside,
   asideScrollbars: 'aside-scrollbars-light',
   asideBrand: '',
   asideMenuItem: 'text-blue-600 hover:text-black dark:text-white',

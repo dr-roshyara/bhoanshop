@@ -25,21 +25,23 @@ const checkMobileAside = computed(() => {
 </script>
 <template>
   <div
-    class="p-2"
+    class="min-h-screen w-full"
     :class="{
       dark: styleStore.initialState.darkMode,
       'overflow-hidden lg:overflow-visible': isAsideMobileExpanded,
     }">
-    <!-- navbar first  -->
-    <NavBar> </NavBar>
-    <!-- aside menu  -->
-    <aside-menu v-if="checkMobileAside" class="-mx-2"></aside-menu>
-
-    <!-- Here comes the right side of the Dashboard slot -->
     <div
-      class="mt-16"
+      class="relative"
       :class="[checkMobileAside ? styleStore.mobileStyle.setAside : styleStore.mobileStyle.removeAside]">
-      <slot> </slot>
+      <!-- navbar first i.e. the top bar  -->
+      <NavBar> </NavBar>
+      <!-- aside menu  -->
+      <aside-menu v-if="checkMobileAside"></aside-menu>
+
+      <!-- Here comes the right side of the Dashboard slot -->
+      <div class="mt-16">
+        <slot> </slot>
+      </div>
     </div>
   </div>
 </template>

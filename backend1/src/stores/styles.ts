@@ -3,6 +3,8 @@ import { defineStore } from 'pinia'
 import * as styles from '@/assets/css/styles'
 import { localStorageDarkModeKey, localStorageStyleKey } from '@/config'
 import type { StyleKey } from '@/types/layout'
+/* eslint-disable prettier/prettier */
+
 export interface StyleState extends Record<string, any> {
   leftSideColor: string
   asideStyle: string

@@ -1,7 +1,7 @@
 <!-- eslint-disable prettier/prettier -->
 <script setup lang="ts">
 import DropdownMenu from '@/Components/NavBar/DropdownMenu.vue'
-import { appTheme } from '@/config'
+import { appTheme } from '@/assets/css/styles'
 // import ItemPlain from './ItemPlain.vue'
 // import MenuList from './MenuList.vue'
 import { ref, computed } from 'vue'
@@ -20,13 +20,13 @@ const checkMobileAside = computed(() => {
 })
 </script>
 <template>
+  <!-- top bar  -->
+
   <nav
-    :class="appTheme.bgNavbar"
-    class="top-0 p-2 inset-x-0 flex flex-row justify-between fixed h-14 z-30 w-screen lg:w-full ease-in-out duration-300 dark:bg-slate-800 rounded-tl-md rounded-tr-md">
+    :class="[{ 'inset-x-0': !checkMobileAside }, appTheme.bgNavbar]"
+    class="top-0 p-2 flex flex-row justify-between fixed h-14 z-10 w-screen lg:w-full ease-in-out duration-300 dark:bg-slate-800 rounded-tl-md rounded-tr-md">
     <!-- Hamburger menu  -->
-    <div
-      class="relative flex items-stretch"
-      :class="[checkMobileAside ? styleStore.mobileStyle.setAside : styleStore.mobileStyle.removeAside]">
+    <div class="relative flex items-stretch">
       <button
         v-if="!styleStore.isMobileAsideOpen"
         @click="showIcon"
