@@ -38,7 +38,8 @@ const initialState: StyleState = {
   navBarItemLabelHoverStyle: styles.basic.navBarItemLabelHover,
   navBarItemLabelActiveColorStyle: styles.basic.navBarItemLabelActiveColor,
   overlayStyle: styles.basic.overlay,
-  darkMode: true,
+  // darkMode: true,
+  darkMode: false,
 }
 
 export const useStyleStore = defineStore('style', {

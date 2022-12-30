@@ -14,10 +14,8 @@ const styleStore = useStyleStore()
         :class="styleStore.initialState.asideBrandStyle"
         class="flex flex-row h-14 items-center justify-between dark:bg-slate-500">
         <div class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0">
-          <span class="font-extrabold">Menu</span>
+          <span class="font-bold text-xl">Menu</span>
         </div>
-        <!-- Button -->
-        <!-- <button class="hidden lg:inline-block xl:hidden p-3">my button</button> -->
       </div>
       <div class="px-1 flex-1 overflow-y-auto overflow-x-hidden">
         <!-- add menu list    -->

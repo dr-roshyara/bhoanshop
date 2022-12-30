@@ -10,8 +10,8 @@ interface ContainerTheme extends Record<string, any> {
 
 export const containerMaxW = 'xl:max-w-6xl xl:mx-auto'
 export const appTheme: ContainerTheme = {
-  bgNavbar: 'bg-[#721f1f]',
-  bgAside: 'bg-[#0f172d]',
+  bgNavbar: 'bg-[#721f1f] dark:bg-[#d6dce7]',
+  bgAside: 'bg-[#0f172d] dark:bg-[#d6dce7]',
   bgMain: 'bg-[#e9fce9]',
   textAside: 'text-[#e9fce9]',
   textMain: 'text-[#07031d]',
@@ -39,7 +39,7 @@ export interface StyleObject extends Record<string, any> {
 export const basic: StyleObject = {
   aside: appTheme.bgAside + ' ' + appTheme.textAside,
   asideScrollbars: 'aside-scrollbars-gray',
-  asideBrand: 'bg-gray-900 text-white',
+  asideBrand: 'bg-slate-900' + ' ' + appTheme.textAside,
   asideMenuItem: 'text-gray-300 hover:text-white',
   asideMenuItemActive: 'font-bold text-white',
   asideMenuDropdown: 'bg-gray-700/50',
